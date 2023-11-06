@@ -8,10 +8,6 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 def setup(request):
     browser_name = request.config.getoption("--browser")
     print("Running BEFORE")
-    # chrome_options = ChromeOptions()
-    # chrome_options.add_argument("--headless")
-    # chrome_options.add_experimental_option("detach", True)
-    # driver = webdriver.Chrome(options=chrome_options)
     if browser_name == "firefox":
         driver = webdriver.Firefox()
     elif browser_name == "chrome--headless":
