@@ -5,8 +5,7 @@
 
 - [Description](#description)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)     
+- [Usage](#usage)    
 
 
 ## Description
@@ -40,7 +39,7 @@ To use this project, follow these steps:
     pip install -r requirements.txt
     ```
 
-Make sure you have Python and pip installed on your machine before running the project.
+Make sure you have Python and pip installed on your machine before running the project. You can integrate this project into your to automate the testing process. Please share details and commands related to your usage.
 
 
 ## Usage
@@ -55,19 +54,30 @@ To utilize the automated tests in this project, follow these steps:
 
 2. Run the specific test files to execute the tests. For example, you can use the following commands to run the tests:
 
+	- run all tests from the tests folder:
+
     ```bash
-    pytest tests/test_login.py
-    pytest tests/test_logout.py
-    pytest tests/test_progress.py
+	pytest tests
+    ```
+	
+	- run all tests from test_login.py:
+
+    ```bash
+	pytest tests/test_login.py
+    ```
+	
+	- run the specific test from test_login.py:
+	
+    ```bash
+	pytest tests/test_login.py -k test_login_invalid_password
+    ```
+	
+	Notice: Project runs in Chrome by default. If you need Firefox, you can use the following command to run the tests:
+	
+	```bash
+	pytest --browser firefox tests/test_login.py
     ```
 	
 3. Check the test results to verify whether the expected outcomes match the actual results.
 
 You can explore and modify the tests based on your requirements.
-
-
-## Contributing
-
-You can integrate this project into your to automate the testing process. Please share details and commands related to your usage.
-
-
