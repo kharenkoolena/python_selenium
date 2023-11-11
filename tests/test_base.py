@@ -1,24 +1,27 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+
+
+def pytest_addoption(parser):
+    parser.addoption("--browser", default="chrome",action="store", help="Specify the browser to use")
+    parser.addoption("--headless", default=False, action="store", help="Specify state of Headless mode")
 
 
 @pytest.fixture(scope="module")
 def setup(request):
     browser_name = request.config.getoption("--browser")
+    headless = request.config.getoption("--headless")
     print("Running BEFORE")
     if browser_name == "firefox":
-        driver = webdriver.Firefox()
-    elif browser_name == "chrome--headless":
-        chrome_options = ChromeOptions()
-        chrome_options.add_argument("--headless")
-        chrome_options.add_experimental_option("detach", True)
-        driver = webdriver.Chrome(options=chrome_options)
+        firefox_options = FirefoxOptions()
+        driver = webdriver.Firefox(options=firefox_options)
     else:
-        o = Options()
-        o.add_experimental_option("detach", True)
-        driver = webdriver.Chrome(options=o)
+        chrome_options = ChromeOptions()
+        if headless:
+            chrome_options.add_argument("--headless")
+        driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(10)
     driver.get("https:/leetcode.com/accounts/login/")
     yield driver
