@@ -16,6 +16,8 @@ This project is built using Python, a high-level programming language known for 
 
 This project uses the Selenium WebDriver, a popular tool for automating web applications for testing purposes. Selenium provides a user-friendly API that enables the interaction with various web elements, making it an ideal choice for web testing and automation tasks. To learn more about Selenium WebDriver, refer to the Selenium documentation: [Selenium Documentation](https://www.selenium.dev/documentation/en/)
 
+This project is designed to be compatible with both Windows and Ubuntu operating systems. Whether you're using a Windows machine or running Ubuntu, you can easily set up and utilize the functionalities of this project.
+
 
 ## Installation
 
@@ -46,13 +48,7 @@ Make sure you have Python and pip installed on your machine before running the p
 
 To utilize the automated tests in this project, follow these steps:
 
-1. Ensure that the necessary packages are installed by running the following command:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-2. Run the specific test files to execute the tests. For example, you can use the following commands to run the tests:
+1. Run the specific test files to execute the tests. Project runs in Chrome by default. For example, you can use the following commands to run the tests:
 
 	- run all tests from the tests folder:
 
@@ -72,12 +68,18 @@ To utilize the automated tests in this project, follow these steps:
 	pytest tests/test_login.py -k test_login_invalid_password
     ```
 	
-	Notice: Project runs in Chrome by default. If you need Firefox, you can use the following command to run the tests:
+	If you need Firefox or Chrome-headless, you can use the following command to run the tests:
 	
+	Firefox:
 	```bash
-	pytest --browser firefox tests/test_login.py
+	pytest tests/test_login.py --browser=firefox
     ```
 	
-3. Check the test results to verify whether the expected outcomes match the actual results.
+	Chrome-headless:
+	```bash
+	pytest tests/test_login.py --browser=chrome --headless
+    ```
+	
+2. Check the test results to verify whether the expected outcomes match the actual results.
 
 You can explore and modify the tests based on your requirements.

@@ -5,8 +5,8 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", default="chrome",action="store", help="Specify the browser to use")
-    parser.addoption("--headless", default=False, action="store", help="Specify state of Headless mode")
+    parser.addoption("--browser", default="chrome", action="store", help="Specifies the browse")
+    parser.addoption("--headless", default=False, action="store", help="Enables the headless mode if the browser supports it")
 
 
 @pytest.fixture(scope="module")
