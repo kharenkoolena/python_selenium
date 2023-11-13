@@ -5,7 +5,8 @@
 
 - [Description](#description)
 - [Installation](#installation)
-- [Usage](#usage)    
+- [Usage](#usage)
+- [Common Issues](#usage)
 
 
 ## Description
@@ -83,3 +84,46 @@ To utilize the automated tests in this project, follow these steps:
 2. Check the test results to verify whether the expected outcomes match the actual results.
 
 You can explore and modify the tests based on your requirements.
+
+
+## Common Issues
+
+### Unable to Run Tests in Ubuntu for Firefox
+
+If you encounter issues running tests in Ubuntu for Firefox, it might be due to conflicts with the snap version of Firefox. Follow these steps to resolve the problem:
+
+1. Remove the snap version of Firefox:
+
+    ```bash
+    sudo snap remove firefox
+    ```
+
+2. Add the Mozilla Team PPA:
+
+    ```bash
+    sudo add-apt-repository ppa:mozillateam/ppa
+    ```
+
+3. Set package pinning preferences:
+
+    ```bash
+    echo '
+    Package: *
+    Pin: release o=LP-PPA-mozillateam
+    Pin-Priority: 1001
+    ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+    ```
+
+4. Configure unattended upgrades:
+
+    ```bash
+    echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+    ```
+
+5. Install the deb version of Firefox:
+
+    ```bash
+    sudo apt install firefox
+    ```
+
+For more details, you can refer to the [instructions provided here](https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04).
