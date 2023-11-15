@@ -3,7 +3,7 @@ from pages.dashboard_page import DashboardPage
 from tests.test_base import setup
 
 
-def test_login(setup):
+def test_login_successful(setup):
     login_page = LoginPage(setup)
     login_page.enter_username("test_user_tuzik")
     login_page.enter_password("tuzik123")

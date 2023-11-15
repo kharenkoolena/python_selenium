@@ -6,14 +6,15 @@ from pages.base_page import BasePage
 
 class DashboardPage(BasePage):
     profile_avatar = (By.ID, 'navbar_user_avatar')
-    profile_menu = (By.ID, "headlessui-menu-items-6")
+    profile_menu = (By.ID, "web-user-menu")
     signout_button = (By.XPATH, "//div[text()='Sign out']")
     current_username = (By.XPATH, "(//div[@role='menu']//a[contains(@class, 'text-label')])[1]")
     progress_button = (By.XPATH, "//div[text()='Progress']")
+    home_app = (By.ID, "home-app")
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.wait_until_element_is_clickable(self.profile_avatar)
+        self.wait_until_element_is_visible(self.home_app)
 
     def check_if_profile_avatar_is_presented(self):
         return self.driver.find_element(*self.profile_avatar).is_displayed()

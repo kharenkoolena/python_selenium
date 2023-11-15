@@ -9,7 +9,7 @@ def pytest_addoption(parser):
     parser.addoption("--headless", default=False, action="store", help="Enables the headless mode if the browser supports it")
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture()
 def setup(request):
     browser_name = request.config.getoption("--browser")
     headless = request.config.getoption("--headless")

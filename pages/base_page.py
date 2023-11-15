@@ -23,10 +23,10 @@ class BasePage:
                 try:
                     element = WebDriverWait(self.driver, 0.1).until(ec.element_to_be_clickable(element))
                     if element:
-                        time.sleep(0.5)
+                        time.sleep(2)
                         return  # Element found, return without raising an exception
                 except TimeoutException:
-                    pass    # Element is not present yet, continue checking
+                    pass     # Element is not present yet, continue checking
 
         raise ElementNotPresentException("Element not found within 10 seconds")
 
@@ -37,7 +37,7 @@ class BasePage:
             try:
                 element = WebDriverWait(self.driver, 0.1).until(ec.visibility_of_element_located(by))
                 if element:
-                    time.sleep(0.5)
+                    time.sleep(2)
                     return  # Element found, return without raising an exception
             except TimeoutException:
                 pass    # Element is not present yet, continue checking
