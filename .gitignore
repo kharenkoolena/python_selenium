@@ -130,3 +130,6 @@ pytest_cache/
 
 # idea
 .idea/
+
+# config.ini
+config.ini

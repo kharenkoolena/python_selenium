@@ -2,13 +2,13 @@ from pages.login_page import LoginPage
 from pages.dashboard_page import DashboardPage
 from tests.test_base import setup
 from pages.landing_page import LandingPage
-from config import USER_NAME, PASSWORD
+from config import user_name, password
 
 
 def test_logout(setup):
     login_page = LoginPage(setup)
-    login_page.enter_username(USER_NAME)
-    login_page.enter_password(PASSWORD)
+    login_page.enter_username(user_name)
+    login_page.enter_password(password)
     login_page.click_signin_button()
     dashboard_page = DashboardPage(setup)
     dashboard_page.click_profile_avatar_button()
