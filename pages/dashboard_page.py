@@ -34,5 +34,8 @@ class DashboardPage(BasePage):
         current_username = self.driver.find_element(*self.current_username)
         return current_username.text
 
+    def click_current_username(self):
+        self.driver.find_element(*self.current_username).click()
+
     def click_progress_button(self):
         self.driver.find_element(*self.progress_button).click()
