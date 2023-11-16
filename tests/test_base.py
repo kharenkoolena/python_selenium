@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from config import login_url
 
 
 def pytest_addoption(parser):
@@ -23,7 +24,8 @@ def setup(request):
             chrome_options.add_argument("--headless")
         driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(10)
-    driver.get("https:/leetcode.com/accounts/login/")
+    print("login_url = " + login_url)
+    driver.get(login_url)
     yield driver
     print("Running AFTER")
     driver.quit()
