@@ -11,3 +11,6 @@ class ProfilePage(BasePage):
 
     def check_username_is_presented(self):
         return self.driver.find_element(*self.username).is_displayed()
+
+    def get_username_text(self):
+        return self.driver.find_element(*self.username).text
