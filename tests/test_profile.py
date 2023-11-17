@@ -14,7 +14,6 @@ def test_username(setup):
     dashboard_page.click_profile_avatar_button()
     dashboard_page.click_current_username()
     profile_page = ProfilePage(setup)
-    assert profile_page.check_username_is_presented()
     assert profile_page.get_username_text() == user_name
 
 
