@@ -11,8 +11,8 @@ def test_if_at_least_one_task_is_accepted(setup):
     login_page.enter_password(password)
     login_page.click_signin_button()
     dashboard_page = DashboardPage(setup)
-    dashboard_page.click_profile_avatar_button()
-    dashboard_page.click_progress_button()
+    dashboard_page.open_profile_menu(setup)
+    dashboard_page.profile_menu_component.click_progress_button()
     window_handles = setup.window_handles
     setup.switch_to.window(window_handles[1])
     progress_page = ProgressPage(setup)
