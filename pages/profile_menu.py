@@ -26,6 +26,3 @@ class ProfileMenu(BasePage):
 
     def click_signout_button(self):
         self.driver.find_element(*self.signout_button).click()
-        # wait = WebDriverWait(self.driver, 1)
-        # signout_button = wait.until(ec.visibility_of_element_located(self.signout_button))
-        # signout_button.click()
