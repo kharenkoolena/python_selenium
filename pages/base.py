@@ -8,7 +8,7 @@ class ElementNotPresentException(Exception):
     pass
 
 
-class BasePage:
+class Base:
 
     def __init__(self, driver):
         self.driver = driver

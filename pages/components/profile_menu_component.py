@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
-from pages.base_page import BasePage
+from pages.base import Base
 
 
-class ProfileMenu(BasePage):
+class ProfileMenuComponent(Base):
     username = (By.XPATH, "(//div[@role='menu']//a[contains(@class, 'text-label')])[1]")
     progress_button = (By.XPATH, "//div[text()='Progress']")
     signout_button = (By.XPATH, "//div[text()='Sign out']")

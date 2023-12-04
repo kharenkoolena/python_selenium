@@ -1,8 +1,8 @@
-from pages.base_page import BasePage
+from pages.base import Base
 from selenium.webdriver.common.by import By
 
 
-class LandingPage(BasePage):
+class LandingPage(Base):
     signup_button = (By.XPATH, "//a[contains(@class, 'sign-up-btn')]")
 
     def __init__(self, driver):
