@@ -12,7 +12,7 @@ def test_username(setup):
     login_page.click_signin_button()
     dashboard_page = DashboardPage(setup)
     dashboard_page.open_profile_menu(setup)
-    dashboard_page.profile_menu_component.click_current_username()
+    dashboard_page.profile_menu_component.click_username()
     profile_page = ProfilePage(setup)
     assert profile_page.get_username_text() == user_name
 

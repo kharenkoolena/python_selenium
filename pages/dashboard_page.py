@@ -1,9 +1,9 @@
 import keyboard
+import time
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from pages.profile_menu import ProfileMenu
-import time
 
 
 class DashboardPage(BasePage):
