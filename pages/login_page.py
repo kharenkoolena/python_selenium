@@ -2,10 +2,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
-from pages.base_page import BasePage
+from pages.base import Base
 
 
-class LoginPage(BasePage):
+class LoginPage(Base):
     username_field = (By.ID, 'id_login')
     passwd_field = (By.ID, 'id_password')
     signin_button = (By.ID, "signin_btn")

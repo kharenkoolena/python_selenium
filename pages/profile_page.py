@@ -1,8 +1,8 @@
-from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
+from pages.base_authorized_page import BaseAuthorizedPage
 
 
-class ProfilePage(BasePage):
+class ProfilePage(BaseAuthorizedPage):
     username = (By.XPATH, "(//div[contains(@class, 'text-label-1 dark')])[2]")
 
     def __init__(self, driver):

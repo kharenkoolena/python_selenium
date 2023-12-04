@@ -1,3 +1,5 @@
+import time
+
 from pages.login_page import LoginPage
 from pages.dashboard_page import DashboardPage
 from tests.test_base import setup
@@ -10,8 +12,8 @@ def test_login_successful(setup):
     login_page.enter_password(password)
     login_page.click_signin_button()
     dashboard_page = DashboardPage(setup)
-    dashboard_page.click_profile_avatar_button()
-    assert dashboard_page.get_current_username() == user_name
+    dashboard_page.open_profile_menu(setup)
+    assert dashboard_page.profile_menu_component.get_username() == user_name
 
 
 def test_login_empty(setup):

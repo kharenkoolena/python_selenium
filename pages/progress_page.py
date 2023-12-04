@@ -1,11 +1,11 @@
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
-from pages.base_page import BasePage
-from selenium.common import TimeoutException
+from pages.base_authorized_page import BaseAuthorizedPage
 
 
-class ProgressPage(BasePage):
+class ProgressPage(BaseAuthorizedPage):
     rows = (By.XPATH, "//div[@role='rowgroup']/div[@role='row']")
     cells_number_of_accepted = (By.XPATH, "//div[@role='rowgroup']/div[@role='row']/div[@role='cell'][6]")
     button_start = (By.XPATH, "//button[contains(text(), 'Start solving problems')]")
